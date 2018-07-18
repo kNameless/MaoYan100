@@ -6,12 +6,12 @@ import json
 from DBcm import UseDatabase
 
 
-dbconfig = {
-    'host': '127.0.0.1',
-    'user': 'pachong',
-    'password': 'l2204551',
-    'database': 'pachongdb',
-}
+# dbconfig = {
+#     'host': '127.0.0.1',
+#     'user': 'g',
+#     'password': '',
+#     'database': '',
+# }
 
 headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
            "(KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"}
@@ -51,18 +51,18 @@ def write_to_flie(content):
         f.close()
 
 
-def write_to_sql(item):
-    indexs = item['indexs']
-    image = item['image']
-    title = item['title']
-    actor = item['actor']
-    time = item['time']
-    score = item['score']
-
-    with UseDatabase(dbconfig) as cursor:
-        _SQL = """insert into maoyan(title, indexs )values (%s, %s)
-        """
-        cursor.execute(_SQL, ('霸王别姬', '霸王别姬'))
+# def write_to_sql(item):
+#     indexs = item['indexs']
+#     image = item['image']
+#     title = item['title']
+#     actor = item['actor']
+#     time = item['time']
+#     score = item['score']
+#
+#     with UseDatabase(dbconfig) as cursor:
+#         _SQL = """insert into maoyan(title, indexs )values (%s, %s)
+#         """
+#         cursor.execute(_SQL, ('', ''))
 
 def main(offset):
     url = 'http://maoyan.com/board/4?offset=' + str(offset)
